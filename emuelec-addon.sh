@@ -17,7 +17,7 @@ EMUELEC="${SCRIPT_DIR}"
 [ -z "$GIT_BRANCH" ] && GIT_BRANCH="master"
 SX05RE_PATH="packages/sx05re"
 EMUELEC_PATH="${SX05RE_PATH}/emuelec"
-[ -z "$EMUELEC_ADDON_VERSION" ] && EMUELEC_ADDON_VERSION="3.7"
+[ -z "$EMUELEC_ADDON_VERSION" ] && EMUELEC_ADDON_VERSION="4.0"
 
 LOG="${SCRIPT_DIR}/emuelec-kodi_`date +%Y%m%d_%H%M%S`.log"
 
