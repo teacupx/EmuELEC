@@ -42,7 +42,9 @@ configure_target() {
 
 make_target() {
   if [ "$ARCH" == "arm" ]; then
-    make -C .. -f Makefile.libretro platform=armv6
+    cd $PKG_BUILD
+    $PKG_BUILD/configure --platform=rpi2
+    make -f Makefile.libretro platform=armv6
   elif [ "$ARCH" == "aarch64" ]; then
     cd $PKG_BUILD
     $PKG_BUILD/configure --platform=generic
