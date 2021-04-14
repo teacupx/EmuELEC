@@ -325,8 +325,7 @@ virtualjaguar"
 
 LIBRETRO_S922X_CORES="mesen \
 mesen-s \
-yabasanshiro \
-quicknes"
+yabasanshiro"
 
   RA_PLAYLIST_NAMES=""\
 "Atari - 2600.lpl;"\
