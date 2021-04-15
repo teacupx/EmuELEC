@@ -1,6 +1,10 @@
 # determines TARGET_CPU, if not forced by user
   if [ -z "$TARGET_CPU" ]; then
-    TARGET_CPU=cortex-a8
+    TARGET_CPU=cortex-a7
+  fi
+
+  if [ -z "$TARGET_FPU" ]; then
+    TARGET_FPU=neon-vfpv4
   fi
 
 # TARGET_CPU:
