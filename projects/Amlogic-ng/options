@@ -22,17 +22,17 @@
         TARGET_PATCH_ARCH="aarch64"
         TARGET_FLOAT="hard"
         TARGET_CPU="cortex-a73.cortex-a53"
-		TARGET_CPU_FLAGS="+crc+crypto+fp+simd"
+        TARGET_CPU_FLAGS="+crc+crypto+fp+simd"
         TARGET_FPU="fp-armv8"
         TARGET_FEATURES="64bit"
         ;;
       arm)
-        TARGET_KERNEL_ARCH="arm64"
-        TARGET_PATCH_ARCH="aarch64"
+        TARGET_KERNEL_ARCH="arm"
+        TARGET_PATCH_ARCH="arm"
         TARGET_FLOAT="hard"
-        TARGET_CPU="cortex-a53"
-        TARGET_CPU_FLAGS="+crc"
-        TARGET_FPU="neon-fp-armv8"
+        TARGET_CPU="cortex-a7"
+        TARGET_CPU_FLAGS="+neon-vfpv4"
+        TARGET_FPU="neon-vfpv4"
         TARGET_FEATURES="32bit"
         ;;
     esac
