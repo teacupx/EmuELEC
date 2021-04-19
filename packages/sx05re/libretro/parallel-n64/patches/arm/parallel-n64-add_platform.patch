@@ -1,6 +1,6 @@
 --- a/Makefile
 +++ b/Makefile
-@@ -280,6 +280,59 @@
+@@ -280,6 +280,60 @@
     PLATFORM_EXT := unix
     WITH_DYNAREC=arm
     HAVE_NEON=1
@@ -11,16 +11,17 @@
 +   LDFLAGS += -shared -Wl,--version-script=$(LIBRETRO_DIR)/link.T
 +   fpic = -fPIC
 +   GLES = 1
-+   GL_LIB := -lGLESv2
 +   CPUFLAGS += -DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE -DARM_FIX -DCLASSIC
 +   PLATFORM_EXT := unix
 +   WITH_DYNAREC=arm
 +   HAVE_NEON=1
 +   
 +	ifneq (,$(findstring Amlogic-ng,$(platform)))
-+		ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a73 -mtune=cortex-a73.cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard
++		ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
++		GL_LIB := -lGLESv3
 +	else
-+		ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a53 -mtune=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard
++		GL_LIB := -lGLESv2
++		ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
 +	endif
 +   
 +   CPUFLAGS += -O2 \
@@ -31,9 +32,9 @@
 +      -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-unroll-loops \
 +      -fno-strict-aliasing -fmerge-all-constants -fno-math-errno
 +	ifneq (,$(findstring Amlogic-ng,$(platform)))     
-+		CPUFLAGS += -marm -mtune=cortex-a73.cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard
++		CPUFLAGS += -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
 +	else
-+		CPUFLAGS += -marm -mtune=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard  
++		CPUFLAGS += -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard  
 +	endif
 +
 +# Emuelec OdroidGoA
@@ -47,7 +48,7 @@
 +   PLATFORM_EXT := unix
 +   WITH_DYNAREC=arm
 +   HAVE_NEON=1
-+   ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a35 -mtune=cortex-a35 -mfpu=neon-fp-armv8 -mfloat-abi=hard
++   ASFLAGS += -D__ARM_NEON__ -marm -mcpu=cortex-a7 -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard
 +  
 +   CPUFLAGS += -O2 \
 +      -fno-lto -fuse-linker-plugin -fno-semantic-interposition -fno-trapping-math \
@@ -56,7 +57,7 @@
 +      -falign-functions=32 -falign-jumps=1 -falign-loops=1 \
 +      -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-unroll-loops \
 +      -fno-strict-aliasing -fmerge-all-constants -fno-math-errno
-+   CPUFLAGS += -marm -mtune=cortex-a35 -mfpu=neon-fp-armv8 -mfloat-abi=hard   
++   CPUFLAGS += -marm -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard   
  
  # OS X
  else ifneq (,$(findstring osx,$(platform)))
