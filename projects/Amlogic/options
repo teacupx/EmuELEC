@@ -27,7 +27,7 @@
         TARGET_FEATURES="64bit"
         ;;
       arm)
-        TARGET_KERNEL_ARCH="arm"
+        TARGET_KERNEL_ARCH="arm64"
         TARGET_PATCH_ARCH="arm"
         TARGET_FLOAT="hard"
         TARGET_CPU="cortex-a7"
