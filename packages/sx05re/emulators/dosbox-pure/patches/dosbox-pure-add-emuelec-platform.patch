@@ -11,13 +11,13 @@
 +CFLAGS   := -DNDEBUG -O3 -fno-ident
 +LDFLAGS  += -O3 -fno-ident
 +
-+CPUFLAGS := -mtune=cortex-a53 -mcpu=cortex-a53 -march=armv8-a+crc+fp+simd
++CPUFLAGS := -mtune=cortex-a7 -mcpu=cortex-a7 -march=armv7ve+neon-vfpv4
 +   
 + ifneq (,$(findstring emuelec-hh,$(platform)))
-+   CPUFLAGS := -mtune=cortex-a35 -mcpu=cortex-a35 -march=armv8-a+crc+fp+simd
++   CPUFLAGS := -mtune=cortex-a7 -mcpu=cortex-a7 -march=armv7ve+neon-vfpv4
 + endif
 + ifneq (,$(findstring emuelec-ng,$(platform)))
-+   CPUFLAGS := -mtune=cortex-a72.cortex-a53 -mcpu=cortex-a72.cortex-a53 -march=armv8-a+crc+fp+simd
++   CPUFLAGS := -mtune=cortex-a7 -mcpu=cortex-a7 -march=armv7ve+neon-vfpv4
 + endif
 +
 +CFLAGS  += $(CPUFLAGS) -fpic -fomit-frame-pointer -fno-exceptions -fno-non-call-exceptions -Wno-psabi -Wno-format
