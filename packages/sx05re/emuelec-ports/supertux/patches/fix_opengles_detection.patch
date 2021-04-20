@@ -1,0 +1,10 @@
+--- supertux-ebc2053150ee3cd69a38a257d5ba31059832d19a/CMakeLists.txt	2021-04-20 19:03:52.000000000 +0200
++++ supertux2/CMakeLists.txt	2021-04-20 19:22:39.137869578 +0200
+@@ -204,6 +204,7 @@
+ 
+ if(ENABLE_OPENGL)
+   if(ENABLE_OPENGLES2)
++    INCLUDE(FindPkgConfig)
+     pkg_check_modules(GLESV2 REQUIRED glesv2)
+     set(HAVE_OPENGL TRUE)
+     set(OPENGL_INCLUDE_DIR  ${GLESV2_INCLUDE_DIRS})
