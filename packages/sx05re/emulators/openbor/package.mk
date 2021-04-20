@@ -17,11 +17,10 @@ PKG_PATCH_DIRS="OdroidGoAdvance"
 fi
 
 
-if [[ "$ARCH" == "arm" ]]; then
-	PKG_PATCH_DIRS="${ARCH}"
-else
-	PKG_PATCH_DIRS="emuelec-aarch64"
-fi
+#	PKG_PATCH_DIRS="${ARCH}"
+#else
+#	PKG_PATCH_DIRS="emuelec-aarch64"
+#fi
 
 
 pre_configure_target() {
